@@ -11,8 +11,8 @@ function base64ToWordArray(base64) {
 // Function to decrypt the ciphertext using the provided key
 function decrypt(ciphertextBase64, keyBase64) {
     try {
-        const key = CryptoJS.enc.Base64.parse(keyBase64);  // Parse Base64-encoded key
-        const combined = CryptoJS.enc.Base64.parse(ciphertextBase64);  // Parse Base64-encoded data
+        const key = CryptoJS.enc.Base64.parse(keyBase64.trim());  // Parse Base64-encoded key
+        const combined = CryptoJS.enc.Base64.parse(ciphertextBase64.trim());  // Parse Base64-encoded data
 
         // Extract IV (16 bytes) and encrypted data
         const iv = CryptoJS.lib.WordArray.create(combined.words.slice(0, 4), 16);
