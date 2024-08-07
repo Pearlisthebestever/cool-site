@@ -20,6 +20,9 @@ app.get('/data/posts-messages.json', (req, res) => {
 app.get('/data/users.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'data', 'users.json'));
 });
+app.get('/data/data_media.json', (req, res) => {
+    res.sendFile(path.join(__dirname, 'data', 'data_media.json'));
+});
 // Handle updating messages
 app.post('/update-messages', (req, res) => {
     const { date, message } = req.body;
