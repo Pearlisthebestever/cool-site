@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/67c66657c7.js"></script>
+    <title>Home - Killian's Cool Site</title>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <nav>
+        <div class="left">
+            <div class="icon">Killian</div>
+        </div>
+        <div class="search_box">
+            <input id="search-box" type="search" placeholder="Search here" autocomplete="off">
+            <span class="fa fa-search" id="search-icon"></span>
+            <div id="suggestions"></div>
+        </div>
+        <ul id="pages">
+            <li class="link"><a href="media&videos.html">media and videos</a></li>
+            <li class="link"><a href="index.html">home</a></li>
+            <li id="auth-button" class="link"><a href="#">Sign In</a></li>
+            <li class="link"><a href="blog.html">blog</a></li>
+        </ul>
+        <ol>
+            <!-- Dropdown menu items -->
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="media&videos.html">MEDIA AND VIDEOS</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a id="auth-button-dropdown" href="#">SIGN IN</a></li>
+        </ol>
+        <label for="check" class="bar">
+            <span class="fa fa-bars" id="bars"></span>
+            <span class="fa fa-times" id="times"></span>
+        </label>
+    </nav>
+    <div class="content-wrapper">
+        <div class="image-container" id="image-container">
+            <img src="images/profile.png" alt="Profile Picture" class="image" id="image">
+        </div>
+        <div class="image-container" id="info">
+            <h3 class="text">Info</h3>
+            <img src="images/weird-man.png" alt="Weird Man" class="image">
+        </div>      
+    </div>
+    <footer class="footer social-footer">
+        <h1 class="social-header">Follow Us!</h1>
+        <a href="https://www.youtube.com/@unstoppalezzz" target="_blank">
+            <img src="icons/youtube.png" alt="YouTube" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="icons/reddit.png" alt="Reddit" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="icons/instagram.png" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="icons/facebook.png" alt="Facebook" class="social-icon">
+        </a>
+    </footer>
+    <footer class="footer">
+        <p>© 2024 unstoppalezzz. All rights reserved.</p>
+    </footer>
+    <script type="text/javascript" src="search-bar.js"></script>
+    <script type="text/javascript" src="idot_check.js"></script>
+    <script type="text/javascript" src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const infoElement = document.querySelector('.image-container#info');
+                if (infoElement) {
+                    infoElement.classList.add('visible');
+                }
+            }, 500); 
+        });
+    </script>
+</body>
+</html>

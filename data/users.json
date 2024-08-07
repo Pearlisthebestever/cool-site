@@ -1,0 +1,24 @@
+{
+    "users": [
+        {
+            "user_id": "0",
+            "encrypted": "i/ulU2dM4b4Me45i8rehGaBg44IMwYlW+RbGnvGkRjTNB0+weoFB7kPWoD/bafi0"
+        },
+        {
+            "user_id": "1",
+            "encrypted": "Zi5B/x6x6wRdzO/FayGBucLg8POyR5wPsHz/PWhKszPfsQk3giEetVO89j7fSaF6rEZVdr45Ef5DCE5wF1j1sQ=="
+        },
+        {
+            "user_id": "2",
+            "encrypted": "n1bFRUGAzYDscKo6/yTZRzl/S6kAOM4UAfs0/UUuKfA2Kl0l+Nek/ZZr7Eec7otA"
+        },
+        {
+            "user_id": "7",
+            "encrypted": "cs+2u6/i2Tt2abZuB8wbor+JzH9Rb+SmQUB+jWi3Qehpv0SMxn32cyX5VTQ2LH0Z"
+        },
+        {
+            "user_id": "3",
+            "encrypted": "53KI+oQjzW+/WpqOAM18vK4OUHImxxIQQklbNTdFhfPqdFEQAP1nDj0B9JqavruF"
+        }
+    ]
+}

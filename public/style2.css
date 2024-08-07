@@ -1,0 +1,71 @@
+/* General reset and font family */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.signin-container {
+    width: 300px;
+    margin: 40px auto; /* Center container with margin */
+    padding: 20px;
+    border: 1px solid #abb8c3; /* Border color */
+    border-radius: 8px;
+    background-color: #000; /* Black background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.signin-container h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Space below heading */
+    color: #ED2939; /* Brand color for heading */
+    font-size: 24px;
+}
+
+.signin-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-container label {
+    margin-bottom: 5px;
+    font-size: 16px; /* Consistent font size */
+    color: #abb8c3; /* White text for readability on black background */
+}
+
+.signin-container input {
+    margin-bottom: 15px; /* More space between inputs */
+    padding: 10px;
+    border: 1px solid #abb8c3; /* Border color */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #abb8c3; /* White text for inputs */
+    background-color: #ED2939; /* Dark background for inputs */
+}
+
+.signin-container button {
+    padding: 10px;
+    background-color: #ED2939; /* Primary button color */
+    color: #abb8c3;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Consistent font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.signin-container button:hover {
+    background-color: #d72a2a; /* Slightly darker on hover */
+}
+
+#error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+.signin-container button:hover {
+    background-color: #abb8c3; /* Background color on hover */
+    color: #ED2939; /* Text color on hover */
+    border-color: #ED2939; /* Border color on hover */
+}

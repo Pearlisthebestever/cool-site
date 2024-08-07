@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="post.css">
+    <script src="https://kit.fontawesome.com/67c66657c7.js"></script>
+    <title>Posts - Killian's Cool Site</title>
+    <script src="post.js" defer></script>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <nav>
+        <div class="left">
+            <div class="icon">Killian</div>
+        </div>
+        <div class="search_box">
+            <input id="search-box" type="search" placeholder="Search here" autocomplete="off">
+            <span class="fa fa-search" id="search-icon"></span>
+            <div id="suggestions"></div>
+        </div>
+        <ul id="pages">
+            <li class="link"><a href="media&videos.html">Media and Videos</a></li>
+            <li class="link"><a href="index.html">Home</a></li>
+            <li id="auth-button" class="link"><a href="#">Sign In</a></li>
+            <li class="link"><a href="blog.html">Blog</a></li>
+        </ul>
+        <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="media&videos.html">Media and Videos</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a id="auth-button-dropdown" href="#">Sign In</a></li>
+        </ol>
+        <label for="check" class="bar">
+            <span class="fa fa-bars" id="bars"></span>
+            <span class="fa fa-times" id="times"></span>
+        </label>
+    </nav>
+    <div class="content-wrapper">
+        <div id="posts-container">
+            <div class="post">
+                <h1 id="post-title"></h1>
+                <div id="post-content"></div>
+            </div>
+        </div>
+        <div id="create-post-container" style="display:none;">
+            <h2>Create a New Message</h2>
+            <form id="create-post-form">
+                <input type="hidden" id="post-date" value="">
+                <label for="message-title">Title:</label>
+                <input type="text" id="message-title" required>
+                <label for="message-content">Content:</label>
+                <textarea id="message-content" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <footer class="footer social-footer">
+        <h1 class="social-header">Follow Us!</h1>
+        <a href="https://www.youtube.com/@unstoppalezzz" target="_blank">
+            <img src="icons/youtube.png" alt="YouTube" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="icons/reddit.png" alt="Reddit" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="icons/instagram.png" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="icons/facebook.png" alt="Facebook" class="social-icon">
+        </a>
+    </footer>
+    <footer class="footer">
+        <p>© 2024 unstoppalezzz. All rights reserved.</p>
+    </footer>
+    <script type="text/javascript" src="search-bar.js" defer></script>
+    <script type="text/javascript" src="idot_check.js" defer></script>
+    <script type="text/javascript" src="auth.js" defer></script>
+</body>
+</html>
