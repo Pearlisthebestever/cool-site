@@ -76,7 +76,7 @@ nav .search_box input {
     box-sizing: border-box;
 }
 
-nav .search_box span {
+nav .search_box img {
     color: #abb8c3;
     font-size: 16px;
     background: #ED2939;
@@ -92,7 +92,7 @@ nav .search_box span {
     transition: background 0.3s, color 0.3s;
 }
 
-nav .search_box span:hover {
+nav .search_box img:hover {
     color: #ED2939;
     background: #abb8c3;
 }
@@ -139,7 +139,7 @@ input[type="checkbox"] {
         border-radius: 5px;
     }
 
-    nav .search_box span {
+    nav .search_box img {
         width: 40px;
         height: 35px;
         font-size: 20px;
@@ -152,7 +152,7 @@ input[type="checkbox"] {
         transition: background 0.3s, color 0.3s;
     }
 
-    nav .search_box span:hover {
+    nav .search_box img:hover {
         background: #abb8c3;
         color: #ff003c;
     }
@@ -799,4 +799,33 @@ body {
     text-align: center;
     margin-top: 100px; 
     font-size: 25px;
+}
+.bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px; /* Adjust as needed for spacing */
+    z-index: 1000; /* Ensure it is above other content */
+}
+
+/* Style for SVG icons */
+.bar img {
+    width: 24px; /* Adjust size as needed */
+    height: auto;
+    cursor: pointer;
+    filter: invert(1); /* Makes the SVG white */
+}
+
+/* Initially hide the 'x' icon and show it when the menu is open */
+#times {
+    display: none;
+}
+
+/* Show the 'x' icon and hide the 'bars' icon when the checkbox is checked */
+#check:checked ~ #times {
+    display: block;
+}
+
+#check:checked ~ #bars {
+    display: none;
 }
