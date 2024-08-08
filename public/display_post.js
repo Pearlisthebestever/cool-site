@@ -10,6 +10,18 @@ function createDailyPost() {
     };
 }
 
+function getESTDate() {
+    // Create a Date object with current UTC time
+    const utcDate = new Date();
+    
+    // Convert UTC to EST (UTC-5 hours)
+    const estOffset = -5; // EST is UTC-5
+    const estDate = new Date(utcDate.getTime() + (estOffset * 60 * 60 * 1000));
+
+    // Return date string in YYYY-MM-DD format
+    return estDate.toISOString().split('T')[0];
+}
+
 function postDailyPost() {
     fetch('/data/posts.json')
         .then(response => {
@@ -21,10 +33,14 @@ function postDailyPost() {
         .then(posts => {
             console.log('Existing posts:', posts);
 
-            const today = new Date().toISOString().split('T')[0];
+            const today = getESTDate(); // Get EST date in YYYY-MM-DD format
+            const currentHour = new Date().getUTCHours() - 5; // Get current hour in EST
+
+            // Check if the daily post for today already exists
             const postExists = posts.some(post => post.id === today);
 
-            if (!postExists) {
+            // Create a new daily post if it doesn't exist and it's close to midnight EST
+            if (!postExists && (currentHour === 0 || currentHour === 23)) {
                 console.log('Creating new daily post.');
 
                 const dailyPost = createDailyPost();
@@ -37,7 +53,7 @@ function postDailyPost() {
                     body: JSON.stringify(dailyPost),
                 });
             } else {
-                console.log('Daily post for today already exists.');
+                console.log('Daily post for today already exists or not time to create.');
                 return Promise.resolve();
             }
         })
