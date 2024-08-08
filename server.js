@@ -4,7 +4,11 @@ const fs = require('fs');
 
 const app = express();
 const port = 3000;
+const moment = require('moment-timezone');
 
+// Set timezone to 'America/New_York'
+const timeInNewYork = moment().tz('America/New_York').format();
+console.log(timeInNewYork);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
