@@ -1,40 +1,52 @@
+
+
 {
   "2024-08-07": [
-    {
-      "title": "Thankful",
-      "content": "Thank you to Killian for supporting us with developing your blog, and being a part of your blog.",
-      "postId": "2024-08-07",
-      "user-id": "2"
-    },
-    {
-      "title": "This site is great",
-      "content": "i love how this site has a fantastic owner and great coding",
-      "postId": "2024-08-07",
-      "user-id": "1"
-    },
-    {
-      "title": "Yerp",
-      "content": "Thanks my mommy for din din",
-      "postId": "2024-08-07",
-      "user-id": "7"
-    },
-    {
-      "title": "Mommy",
-      "content": "Thank u mommy for feeding our tummy’s I love being big back sigma eater",
-      "postId": "2024-08-07",
-      "user-id": "3"
-    },
-    {
-      "title": "Family",
-      "content": "I'm the luckiest guy in the world to have all of you in my life",
-      "postId": "2024-08-07",
-      "user-id": "8"
-    },
-    {
-      "title": "Last post for the first day",
-      "content": "This is amazing that we finaly have a community form for everyone",
-      "postId": "2024-08-07",
-      "user-id": "0"
-    }
-  ]
+  {
+    "title": "Thankful",
+    "content": "Thank you to Killian for supporting us with developing your blog, and being a part of your blog.",
+    "postId": "2024-08-07",
+    "user-id": "2"
+  },
+  {
+    "title": "This site is great",
+    "content": "i love how this site has a fantastic owner and great coding",
+    "postId": "2024-08-07",
+    "user-id": "1"
+  },
+  {
+    "title": "Yerp",
+    "content": "Thanks my mommy for din din",
+    "postId": "2024-08-07",
+    "user-id": "7"
+  },
+  {
+    "title": "Mommy",
+    "content": "Thank u mommy for feeding our tummy’s I love being big back sigma eater",
+    "postId": "2024-08-07",
+    "user-id": "3"
+  },
+  {
+    "title": "Family",
+    "content": "I'm the luckiest guy in the world to have all of you in my life",
+    "postId": "2024-08-07",
+    "user-id": "8"
+  },
+  {
+    "title": "Last post for the first day",
+    "content": "This is amazing that we finaly have a community form for everyone",
+    "postId": "2024-08-07",
+    "user-id": "0"
+  }
+],
+"2024-08-08": [
+  {
+    "title": "Happy bday",
+    "content": "Todays is baby pearls and big boy peppers birthday ",
+    "postId": "2024-08-08",
+    "user-id": "1"
+  }
+]
 }
+
+

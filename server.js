@@ -51,16 +51,28 @@ app.post('/update-messages', (req, res) => {
 // Handle updating posts
 app.post('/update-posts', (req, res) => {
     const newPost = req.body;
+
+    // Basic validation
+    if (!newPost.id || !newPost.title || !newPost.description) {
+        return res.status(400).send('Invalid post data');
+    }
+
     const filePath = path.join(__dirname, 'data', 'posts.json');
     
     fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) return res.status(500).send('Error reading file');
+        if (err) return res.status(500).send('Error reading posts file');
         
-        const posts = JSON.parse(data);
+        let posts;
+        try {
+            posts = JSON.parse(data);
+        } catch (err) {
+            return res.status(500).send('Error parsing posts file');
+        }
+        
         posts.push(newPost);
         
         fs.writeFile(filePath, JSON.stringify(posts, null, 2), 'utf8', (err) => {
-            if (err) return res.status(500).send('Error writing file');
+            if (err) return res.status(500).send('Error writing posts file');
             res.send('Post added successfully');
         });
     });

@@ -31,18 +31,20 @@ function postDailyPost() {
             return response.json();
         })
         .then(posts => {
-            console.log('Existing posts:', posts);
-
             const today = getESTDate(); // Get EST date in YYYY-MM-DD format
             const currentHour = new Date().getUTCHours() - 5; // Get current hour in EST
 
+            // Log current values for debugging
+            console.log('Today (EST):', today);
+            console.log('Current Hour (EST):', currentHour);
+
             // Check if the daily post for today already exists
             const postExists = posts.some(post => post.id === today);
+            console.log('Post Exists:', postExists);
 
-            // Create a new daily post if it doesn't exist and it's close to midnight EST
-            if (!postExists && (currentHour === 0 || currentHour === 23)) {
+            // Adjust the time window or remove the time condition if unnecessary
+            if (!postExists && (currentHour >= 0 && currentHour <= 23)) {
                 console.log('Creating new daily post.');
-
                 const dailyPost = createDailyPost();
 
                 return fetch('/update-posts', {
@@ -54,15 +56,17 @@ function postDailyPost() {
                 });
             } else {
                 console.log('Daily post for today already exists or not time to create.');
-                return Promise.resolve();
+                return Promise.resolve(); // No new post created
             }
         })
         .then(response => {
             if (response && response.ok) {
                 console.log('Daily post created successfully.');
                 return response.text();
-            } else {
+            } else if (response) {
                 console.error('Failed to create daily post:', response.statusText);
+            } else {
+                console.warn('No response received from /update-posts fetch call.');
             }
         })
         .then(() => {
@@ -70,6 +74,7 @@ function postDailyPost() {
         })
         .catch(error => console.error('Error posting daily post:', error));
 }
+
 
 function loadPosts() {
     fetch('/data/posts.json')
