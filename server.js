@@ -6,8 +6,6 @@ const app = express();
 const port = 3000;
 
 // Set timezone to 'America/New_York'
-const timeInNewYork = moment().tz('America/New_York').format();
-console.log(timeInNewYork);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
