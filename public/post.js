@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (postId) {
         console.log('Fetching posts...');
-        fetch('/data/posts.json')
+        fetch('data/posts.json')
             .then(response => response.json())
             .then(posts => {
                 console.log('Fetched posts:', posts);
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const postDate = post.id;
                         console.log(`Post Date: ${postDate}`);
 
-                        fetch('/data/posts-messages.json')
+                        fetch('data/posts-messages.json')
                             .then(response => response.json())
                             .then(messages => {
                                 console.log('Fetched messages:', messages);

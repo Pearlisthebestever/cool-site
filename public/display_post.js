@@ -11,7 +11,6 @@ function createDailyPost() {
 }
 
 function getESTDate() {
-    // Create a Date object with current UTC time
     const utcDate = new Date();
     
     // Convert UTC to EST (UTC-5 hours)
@@ -23,7 +22,7 @@ function getESTDate() {
 }
 
 function postDailyPost() {
-    fetch('/data/posts.json')
+    fetch('data/posts.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -31,20 +30,16 @@ function postDailyPost() {
             return response.json();
         })
         .then(posts => {
+            console.log('Existing posts:', posts);
+
             const today = getESTDate(); // Get EST date in YYYY-MM-DD format
             const currentHour = new Date().getUTCHours() - 5; // Get current hour in EST
 
-            // Log current values for debugging
-            console.log('Today (EST):', today);
-            console.log('Current Hour (EST):', currentHour);
-
-            // Check if the daily post for today already exists
             const postExists = posts.some(post => post.id === today);
-            console.log('Post Exists:', postExists);
 
-            // Adjust the time window or remove the time condition if unnecessary
-            if (!postExists && (currentHour >= 0 && currentHour <= 23)) {
+            if (!postExists && (currentHour >= 0 && currentHour <= 1)) {
                 console.log('Creating new daily post.');
+
                 const dailyPost = createDailyPost();
 
                 return fetch('/update-posts', {
@@ -55,26 +50,29 @@ function postDailyPost() {
                     body: JSON.stringify(dailyPost),
                 });
             } else {
-                console.log('Daily post for today already exists or not time to create.');
-                return Promise.resolve(); // No new post created
+                console.log('Daily post for today already exists or not the right time to create.');
+                return Promise.resolve();
             }
         })
         .then(response => {
             if (response && response.ok) {
                 console.log('Daily post created successfully.');
                 return response.text();
-            } else if (response) {
-                console.error('Failed to create daily post:', response.statusText);
             } else {
-                console.warn('No response received from /update-posts fetch call.');
+                console.error('Failed to create daily post:', response.statusText);
             }
         })
         .then(() => {
             loadPosts();
         })
-        .catch(error => console.error('Error posting daily post:', error));
+        .catch(error => {
+            console.error('Error posting daily post:', error);
+            // Retry mechanism
+            setTimeout(() => {
+                postDailyPost();
+            }, 60000); // Retry after 1 minute
+        });
 }
-
 
 function loadPosts() {
     fetch('/data/posts.json')
