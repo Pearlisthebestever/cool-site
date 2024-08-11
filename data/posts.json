@@ -10,5 +10,16 @@
     "title": "Daily Post - 2024-08-08",
     "description": "This is the daily post for 2024-08-08.",
     "isDaily": true
-  }
+  },
+  {
+    "id": "2024-08-9",
+    "title": "Daily Post - 2024-08-9",
+    "description": "This is the daily post for 2024-08-9.",
+    "isDaily": true
+  },
+  {
+    "id": "2024-08-10",
+    "title": "Daily Post - 2024-08-10",
+    "description": "This is the daily post for 2024-08-10.",
+    "isDaily": true
 ]

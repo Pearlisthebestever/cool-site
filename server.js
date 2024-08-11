@@ -5,7 +5,7 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
-// Set timezone to 'America/New_York'
+// Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -18,12 +18,17 @@ app.get('/data/posts.json', (req, res) => {
 app.get('/data/posts-messages.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'data', 'posts-messages.json'));
 });
+
+// Serve users.json
 app.get('/data/users.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'data', 'users.json'));
 });
+
+// Serve data_media.json
 app.get('/data/data_media.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'data', 'data_media.json'));
 });
+
 // Handle updating messages
 app.post('/update-messages', (req, res) => {
     const { date, message } = req.body;
@@ -65,7 +70,14 @@ app.post('/update-posts', (req, res) => {
         } catch (err) {
             return res.status(500).send('Error parsing posts file');
         }
-        
+
+        // Check if the post already exists
+        const postExists = posts.some(post => post.id === newPost.id);
+        if (postExists) {
+            return res.status(400).send('Post already exists');
+        }
+
+        // Add new post
         posts.push(newPost);
         
         fs.writeFile(filePath, JSON.stringify(posts, null, 2), 'utf8', (err) => {

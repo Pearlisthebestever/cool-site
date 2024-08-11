@@ -1,3 +1,21 @@
+// Function to get the current date in EST (YYYY-MM-DD format)
+function getESTDate() {
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    });
+
+    const parts = formatter.formatToParts(new Date());
+    const year = parts.find(part => part.type === 'year').value;
+    const month = parts.find(part => part.type === 'month').value;
+    const day = parts.find(part => part.type === 'day').value;
+
+    return `${year}-${month}-${day}`;
+}
+
+// Function to create a new daily post
 function createDailyPost() {
     const today = getESTDate(); // Use the EST date
     return {
@@ -8,24 +26,7 @@ function createDailyPost() {
     };
 }
 
-function getESTDate() {
-    // Use Intl.DateTimeFormat to format the date in the "America/New_York" timezone
-    const formatter = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/New_York',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-    });
-
-    // Format the date to the desired YYYY-MM-DD format
-    const parts = formatter.formatToParts(new Date());
-    const year = parts.find(part => part.type === 'year').value;
-    const month = parts.find(part => part.type === 'month').value;
-    const day = parts.find(part => part.type === 'day').value;
-
-    return `${year}-${month}-${day}`;
-}
-
+// Function to post the daily post if it doesn't already exist
 function postDailyPost() {
     fetch('data/posts.json')
         .then(response => {
@@ -74,6 +75,7 @@ function postDailyPost() {
         });
 }
 
+// Function to load posts from the server
 function loadPosts() {
     fetch('data/posts.json')
         .then(response => {
@@ -89,6 +91,7 @@ function loadPosts() {
         .catch(error => console.error('Error fetching posts:', error));
 }
 
+// Function to display posts on the page
 function displayPosts(posts) {
     // Sort posts so that daily posts come first and in descending order of date
     posts.sort((a, b) => {
